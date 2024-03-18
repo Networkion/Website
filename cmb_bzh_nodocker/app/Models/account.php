@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class account extends Model
 {
+    protected $fillable = ['balance', 'livretJ', 'LivretA', 'ammountA', 'ammountJ'];
     use HasFactory;
 }

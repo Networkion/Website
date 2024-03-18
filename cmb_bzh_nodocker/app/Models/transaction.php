@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class transaction extends Model
 {
+    protected $fillable = ['date', 'purpose', 'amount', 'amount'];
     use HasFactory;
 }
