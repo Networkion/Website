@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ConnexionController;
+
+Route::get('/connexion', [ConnexionController::class, 'index'])->name('connexion.index');
+Route::post('/connexion', [ConnexionController::class, 'connexion'])->name('connexion.connexion');
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
