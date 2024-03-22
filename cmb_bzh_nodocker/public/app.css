@@ -127,7 +127,7 @@
     position: relative; /* Assurez-vous que le conteneur a une position relative */
     width: 100%; /* Ajustez la largeur selon vos besoins */
     height: 500px; /* Ajustez la hauteur selon vos besoins */
-    background-image: url("https://img.freepik.com/photos-gratuite/homme-heureux-sa-femme-ayant-reunion-conseiller-financier-signant-accord-au-bureau_637285-6121.jpg?t=st=1709549390~exp=1709552990~hmac=8e818c5ae1ba83e5f5a983da5407eacef8d461cbc2149e382cacd680dd3a18f0&w=1060"); /* Chemin vers votre image */
+    background-image: url("{{ asset('img/img1.jpg') }}"); /* Chemin vers votre image */
     background-size: cover;
     overflow: hidden;
 }
@@ -139,7 +139,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("https://img.freepik.com/photos-gratuite/homme-heureux-sa-femme-ayant-reunion-conseiller-financier-signant-accord-au-bureau_637285-6121.jpg?t=st=1709549390~exp=1709552990~hmac=8e818c5ae1ba83e5f5a983da5407eacef8d461cbc2149e382cacd680dd3a18f0&w=1060");
+    background-image: url('img/img1.jpg');
     background-size: cover;
     z-index: 0;
     pointer-events: none; /* Assure que l'image arrière-plan ne réagit pas aux événements */
@@ -154,7 +154,7 @@
     border-bottom-right-radius: 10%;
     margin: 1%;
     padding: 1%;
-    height: 200px; /* Ajustez la hauteur de votre div */
+    height: 250px; /* Ajustez la hauteur de votre div */
     background-color: rgb(255, 0, 0);
     color: #fff;
     opacity: 1;
@@ -222,7 +222,7 @@
 .card-grise-photo {
     position: relative; /* Assurez-vous que le conteneur a une position relative */
     width: 95%; /* Ajustez la largeur selon vos besoins */
-    background-image: url("https://img.freepik.com/photos-gratuite/bureau-banque-moderne-employes-clients_778687-2038.jpg?t=st=1709642435~exp=1709646035~hmac=ba17bf384065e3bf238b040d1dd8532e146e335a803545f075bca84ff644fc5d&w=740"); /* Chemin vers votre image */
+    background-image: url("img/img2.jpg"); /* Chemin vers votre image */
     background-size: cover;
     overflow: hidden;
     margin: 2%;
@@ -249,7 +249,7 @@
 .card-recherche-agence {
     position: relative; /* Assurez-vous que le conteneur a une position relative */
     width: 95%; /* Ajustez la largeur selon vos besoins */
-    background-image: url("https://img.freepik.com/photos-gratuite/femme-retirant-argent-au-guichet-automatique-exterieur-rue_1303-26335.jpg?t=st=1709644206~exp=1709647806~hmac=730af1dbbdb8fafaad800fb1241eb2e18a335c080812c6b08996b57c0c6655d2&w=1060"); /* Chemin vers votre image */
+    background-image: url("img/img3.jpg"); /* Chemin vers votre image */
     background-size: cover;
     overflow: hidden;
     margin: 2%;
@@ -263,6 +263,7 @@
     padding: 1%;
     width: 50%;
     height: 200px;
+    border-radius: 5%;
     background: linear-gradient(
         to bottom,
         rgba(255, 0, 0, 1),
@@ -499,9 +500,7 @@ body {
     padding: 1%;
 }
 
-
 .compte-notif {
-    
     width: 90%;
     margin: 5%;
     padding: 1%;
@@ -517,15 +516,31 @@ body {
     border-radius: 10%;
 }
 
-.objet-notfi{
+.objet-notfi {
     width: 100%;
     font-size: large;
 }
 
-.contenu-notfi{
+.contenu-notfi {
     width: 90%;
     padding: 2%;
     background-color: grey;
     border-radius: 5%;
     height: 7em;
+}
+
+
+.input-recherche{
+     width: 90%;
+     border-radius: 5%;
+}
+
+.input-form{
+    width: 100%;
+    border-radius: 5%;
+    height: 2em;
+    font-weight: 600;
+    font-display: grid ;
+    font-size: larger;
+    border-style: none;
 }

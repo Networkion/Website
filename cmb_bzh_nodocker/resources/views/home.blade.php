@@ -92,7 +92,7 @@
         <div class="card-recherche-agence">
             <div class="container-rouge-text">
             <p>Et si on se rencontrait ? Trouvez l'agence la plus proche de vous<p>
-                <input   placeholder="Entrez le nom d'une ville ...."/>
+                <input  class="input-recherche"  placeholder="Entrez le nom d'une ville ...."/>
                 <img class="image-recherche" src="https://img.freepik.com/vecteurs-libre/illustration-icone-loupe_53876-5613.jpg?t=st=1709644264~exp=1709647864~hmac=3f40773c9ab1314ac59e5853f6f62e8ad9602293f5733cf4bbab92675f8f9d09&w=740" alt="image de recherche"/>
             </div>
         </div>  

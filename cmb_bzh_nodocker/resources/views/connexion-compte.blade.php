@@ -20,16 +20,21 @@
     <div class="container-connexion">
         <div class="card-gris-center">
             <h2>ACCÈS À VOTRE ESPACE CLIENT</h2>
-            <form action="{{ route('connexion') }}" method="POST">
+            @if(session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
+            <form action="{{ url('/connexion') }}" method="POST">
                 @csrf <!-- Génère un jeton CSRF pour la protection des formulaires -->
 
                 <div>
                     <label for="email">Email:</label><br>
-                    <input type="email" id="email" name="email" required>
+                    <input class="input-form" type="email" id="email" name="email" required>
                 </div>
                 <div>
                     <label for="password">Mot de passe:</label><br>
-                    <input type="password" id="password" name="password" required>
+                    <input class="input-form" type="password" id="password" name="password" required>
                 </div>
                 <div>
                     <input type="checkbox" id="remember" name="remember">
@@ -39,7 +44,7 @@
                 <a href="{{ url('/creation-compte') }}">Création de compte</a>
 
                 <div class="bouton-suivant-center">
-                    <button class="button-suivant" ><strong><a href="{{ url('/compte') }}">Suivant</a></strong></button><br/>
+                    <button class="button-suivant" type="submit"><strong>Suivant</strong></button><br/>
                     <u><i>Code d'accès oubliés / Accès bloqué </i></u>
                 </div>
             </form>

@@ -39,6 +39,11 @@ class AccountController extends Controller
     // Méthode pour vérifier l'existence d'un compte
     public function check(Request $request)
     {
+        // Validez les données de la requête
+        $request->validate([
+            'email' => 'required|string|email|max:255',
+        ]);
+
         // Récupérez l'email depuis la requête
         $email = $request->email;
 
