@@ -4,13 +4,16 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ConnexionController;
 
+// Route pour afficher le formulaire de connexion
 Route::get('/connexion', [ConnexionController::class, 'index'])->name('connexion.index');
-Route::post('/connexion', [ConnexionController::class, 'connexion'])->name('connexion.connexion');
+
+// Route pour gérer la soumission du formulaire de connexion
+Route::post('/connexion', [ConnexionController::class, 'authenticate'])->name('connexion.authenticate');
 
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Routes 
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application.

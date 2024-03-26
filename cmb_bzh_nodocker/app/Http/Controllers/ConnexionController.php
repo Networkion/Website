@@ -12,7 +12,7 @@ class ConnexionController extends Controller
     {
         return view('connexion');
     }
-
+    
     // Méthode pour gérer la tentative de connexion
     public function authenticate(Request $request)
     {

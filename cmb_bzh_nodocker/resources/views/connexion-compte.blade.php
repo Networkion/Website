@@ -25,7 +25,8 @@
                     {{ session('error') }}
                 </div>
             @endif
-            <form action="{{ url('/connexion') }}" method="POST">
+            <form action="{{ route('connexion.authenticate') }}" method="POST">
+
                 @csrf <!-- Génère un jeton CSRF pour la protection des formulaires -->
 
                 <div>
