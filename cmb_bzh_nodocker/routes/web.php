@@ -34,13 +34,16 @@ Route::get('connexion', function () {
     return view('connexion-compte');
 });
 
+// Route pour afficher le formulaire de création de compte
+Route::get('nouveau-compte', 'UserController@create')->name('nouveau-compte.create');
+
+// Route pour stocker un nouveau compte
+Route::post('enregistrer-compte', 'UserController@store')->name('enregistrer-compte.store');
+
+// Route pour afficher la vue de création de compte
 Route::get('creation-compte', function () {
     return view('creation-compte');
-});
-
-// Assigner le UserController aux routes de création de compte
-Route::get('creation-compte', 'UserController@create')->name('creation-compte.create');
-Route::post('creation-compte', 'UserController@store')->name('creation-compte.store');
+})->name('creation-compte.view');
 
 Route::get('compte', function () {
     return view('compte');

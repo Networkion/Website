@@ -42,7 +42,7 @@
                     <label for="remember">Se souvenir de moi</label>
                 </div>
                 <h3><i>Première connexion ?</i></h3>
-                <a href="{{ url('/creation-compte') }}">Création de compte</a>
+                <a href="{{ route('nouveau-compte.create') }}">Création de compte</a>
 
                 <div class="bouton-suivant-center">
                     <button class="button-suivant" type="submit"><strong>Suivant</strong></button><br/>
