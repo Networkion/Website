@@ -24,8 +24,16 @@ class ConnexionController extends Controller
 
         // Tentative de connexion avec les informations fournies
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            // Connexion réussie, rediriger l'utilisateur vers une autre page
-            return redirect()->route('dashboard');
+            // Connexion réussie, vérifier si l'utilisateur a un compte
+            $user = Auth::user();
+            if ($user) {
+                // Rediriger l'utilisateur vers la vue compte.blade.php
+                return view('compte');
+            } else {
+                // L'utilisateur n'a pas de compte, déconnectez-le et redirigez-le vers la page de connexion avec un message d'erreur
+                Auth::logout();
+                return redirect()->back()->with('error', 'Vous n\'avez pas de compte.');
+            }
         } else {
             // Connexion échouée, rediriger avec un message d'erreur
             return redirect()->back()->with('error', 'Adresse e-mail ou mot de passe incorrect.');

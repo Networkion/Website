@@ -41,14 +41,19 @@
                     <input type="checkbox" id="remember" name="remember">
                     <label for="remember">Se souvenir de moi</label>
                 </div>
-                <h3><i>Première connexion ?</i></h3>
-                <a href="{{ route('nouveau-compte.create') }}">Création de compte</a>
-
                 <div class="bouton-suivant-center">
                     <button class="button-suivant" type="submit"><strong>Suivant</strong></button><br/>
                     <u><i>Code d'accès oubliés / Accès bloqué </i></u>
-                </div>
+            </div>
+                
             </form>
+            <h3><i>Première connexion ?</i></h3>
+
+            <form action="{{ route('creation-compte.create') }}" method="GET">
+                @csrf
+                <button type="submit">Création de compte</button>
+            </form>
+          
         </div>
     </div>
     <div class="footer-contact">

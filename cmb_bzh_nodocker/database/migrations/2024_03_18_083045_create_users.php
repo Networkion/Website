@@ -13,12 +13,12 @@ return new class extends Migration {
         Schema::create('users', function (Blueprint $table) {
             $table->id('idUsers'); // Déclare une colonne auto-incrémentée idUsers comme clé primaire
             $table->string('login')->nullable(false);
-            $table->string('name')->nullable(false);
+            $table->string('name')->nullable(); // Rend la colonne name nullable
             $table->string('firstName')->nullable(false);
             $table->string('email')->nullable(false);
             $table->string('role')->nullable(false);
-            $table->dateTime('birthdate')->nullable(false);
-            $table->string('password')->nullable(false);
+            $table->dateTime('birthdate')->nullable();
+            $table->string('password')->nullable();
             $table->dateTime('created_at')->nullable();
             $table->dateTime('updated_at')->nullable();
             $table->integer('numCarte')->nullable();
@@ -27,8 +27,8 @@ return new class extends Migration {
 
             // Ne déclarez pas de clé primaire ici car idUsers est déjà défini comme clé primaire avec la méthode id()
         });
-
     }
+
 
     /**
      * Reverse the migrations.

@@ -10,31 +10,45 @@ class AccountController extends Controller
     // Méthode pour afficher le formulaire de création de compte
     public function create()
     {
-        return view('accounts.create');
+        return view('creation-compte');
     }
+
 
     // Méthode pour stocker un nouveau compte
-    public function store(Request $request)
-    {
-        // Validez les données du formulaire
-        $request->validate([
-            'login' => 'required|string|max:255|unique:users',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8',
-            'numCarte' => 'required|string|max:16|unique:users',
-        ]);
+   // Méthode pour stocker un nouveau compte
+// Méthode pour stocker un nouveau compte
+public function store(Request $request)
+{
+    // Validez les données du formulaire
+    $request->validate([
+        'login' => 'required|string|max:255|unique:users',
+        'name' => 'required|string|max:255',
+        'firstName' => 'required|string|max:255',
+        'email' => 'required|string|email|max:255|unique:users',
+        'role' => 'required|string|max:255',
+        'birthdate' => 'nullable|date',
+        'password' => 'required|string|min:8',
+        'numCarte' => 'required|string|max:16|unique:users',
+    ]);
 
-        // Créez un nouvel utilisateur avec les données du formulaire
-        $user = new User();
-        $user->login = $request->login;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password); // Assurez-vous de hasher le mot de passe
-        $user->numCarte = $request->numCarte;
-        $user->save();
+    // Créez un nouvel utilisateur avec les données du formulaire
+    $user = new User();
+    $user->login = $request->login;
+    $user->name = $request->name;
+    $user->firstName = $request->firstName;
+    $user->email = $request->email;
+    $user->role = $request->role;
+    $user->birthdate = $request->birthdate;
+    $user->password = bcrypt($request->password); // Assurez-vous de hasher le mot de passe
+    $user->numCarte = $request->numCarte;
+    $user->save();
 
-        // Redirigez l'utilisateur vers une autre page après avoir enregistré le compte
-        return redirect()->route('home')->with('success', 'Account created successfully!');
-    }
+    // Redirigez directement l'utilisateur vers la vue "compte.blade.php" après avoir enregistré le compte
+    return view('compte')->with('success', 'Account created successfully!');
+}
+
+
+
 
     // Méthode pour vérifier l'existence d'un compte
     public function check(Request $request)
