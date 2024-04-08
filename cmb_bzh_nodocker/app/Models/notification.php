@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class account extends Model
+class Notification extends Model
 {
-    protected $fillable = ['nom', 'numero_carte', 'date_solde', 'facilite_caisse', 'montant'];
+    protected $fillable = ['objet', 'contenu'];
 
     // Vous pouvez définir d'autres relations ou méthodes ici si nécessaire
 }

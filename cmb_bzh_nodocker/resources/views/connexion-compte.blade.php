@@ -51,7 +51,7 @@
 
             <form action="{{ route('creation-compte.create') }}" method="GET">
                 @csrf
-                <button type="submit">Création de compte</button>
+                <button class="button-suivant" type="submit">Création de compte</button>
             </form>
           
         </div>

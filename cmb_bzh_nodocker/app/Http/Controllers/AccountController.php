@@ -13,61 +13,26 @@ class AccountController extends Controller
         return view('creation-compte');
     }
 
-
     // Méthode pour stocker un nouveau compte
-   // Méthode pour stocker un nouveau compte
-// Méthode pour stocker un nouveau compte
-public function store(Request $request)
-{
-    // Validez les données du formulaire
-    $request->validate([
-        'login' => 'required|string|max:255|unique:users',
-        'name' => 'required|string|max:255',
-        'firstName' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users',
-        'role' => 'required|string|max:255',
-        'birthdate' => 'nullable|date',
-        'password' => 'required|string|min:8',
-        'numCarte' => 'required|string|max:16|unique:users',
-    ]);
-
-    // Créez un nouvel utilisateur avec les données du formulaire
-    $user = new User();
-    $user->login = $request->login;
-    $user->name = $request->name;
-    $user->firstName = $request->firstName;
-    $user->email = $request->email;
-    $user->role = $request->role;
-    $user->birthdate = $request->birthdate;
-    $user->password = bcrypt($request->password); // Assurez-vous de hasher le mot de passe
-    $user->numCarte = $request->numCarte;
-    $user->save();
-
-    // Redirigez directement l'utilisateur vers la vue "compte.blade.php" après avoir enregistré le compte
-    return view('compte')->with('success', 'Account created successfully!');
-}
-
-
-
-
-    // Méthode pour vérifier l'existence d'un compte
-    public function check(Request $request)
+    public function store(Request $request)
     {
-        // Validez les données de la requête
+        // Validez les données du formulaire
         $request->validate([
-            'email' => 'required|string|email|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'numCarte' => 'required|string|max:16|unique:users',
+            'facilite_caisse' => 'required|numeric',
+            'montant' => 'required|numeric',
         ]);
 
-        // Récupérez l'email depuis la requête
-        $email = $request->email;
+        // Créez un nouvel utilisateur avec les données du formulaire
+        $user = new User();
+        $user->email = $request->email;
+        $user->numCarte = $request->numCarte;
+        $user->facilite_caisse = $request->facilite_caisse;
+        $user->montant = $request->montant;
+        $user->save();
 
-        // Vérifiez si un utilisateur avec cet email existe dans la base de données
-        $user = User::where('email', $email)->first();
-
-        if ($user) {
-            return response()->json(['exists' => true]);
-        } else {
-            return response()->json(['exists' => false]);
-        }
+        // Redirigez directement l'utilisateur vers la vue "compte.blade.php" après avoir enregistré le compte
+        return view('compte')->with('success', 'Account created successfully!');
     }
 }
