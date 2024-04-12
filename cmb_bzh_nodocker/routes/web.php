@@ -3,8 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConnexionController;
 use App\Http\Controllers\AccountController;
-use App\Http\Controllers\NotificationController; // Importez le contrôleur NotificationController
-use App\Http\Controllers\VotreController; // Importez le contrôleur VotreController
+use App\Http\Controllers\NotificationController;
 
 // Route pour afficher le formulaire de connexion
 Route::get('/connexion', [ConnexionController::class, 'index'])->name('connexion.index');
@@ -17,13 +16,11 @@ Route::get('/creation-compte', [AccountController::class, 'create'])->name('crea
 Route::post('/creation-compte', [AccountController::class, 'store'])->name('creation-compte.store');
 
 // Route pour afficher le formulaire de création de notification
-Route::get('/creation-notification', [NotificationController::class, 'create'])->name('creation-notification.create');
-Route::post('/creation-notification', [NotificationController::class, 'createNotification'])->name('creation-notification.store');
+Route::get('/creer-notification', [NotificationController::class, 'create'])->name('notification.create');
+Route::post('/creer-notification', [NotificationController::class, 'createNotification'])->name('notification.store');
 
-// Route pour afficher la page d'accueil
-Route::get('/', function () {
-    return view('home');
-});
+// Route pour afficher la page d'accueil en utilisant VotreController
+Route::get('/', [NotificationController::class, 'index'])->name('accueil');
 
 // Route pour afficher la page de contact
 Route::get('contact', function () {

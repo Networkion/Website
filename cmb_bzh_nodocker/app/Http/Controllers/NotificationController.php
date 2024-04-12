@@ -17,7 +17,7 @@ class NotificationController extends Controller
         $notifications = Notification::all();
 
         // Passez les données des comptes et des notifications à la vue et retournez la vue
-        return view('votre_vue')->with('comptes', $comptes)->with('notifications', $notifications);
+        return view('votre_vue', compact('comptes', 'notifications'));
     }
 
     public function createNotification(Request $request)
