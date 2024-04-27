@@ -27,7 +27,7 @@
             @endif
             <form action="{{ route('connexion.authenticate') }}" method="POST">
 
-                @csrf <!-- Génère un jeton CSRF pour la protection des formulaires -->
+                @csrf <!-- CSRF Token generate for security -->
 
                 <div>
                     <label for="email">Email:</label><br>
@@ -58,7 +58,7 @@
     </div>
     <div class="footer-contact">
         <div class="card-footer-gris-center">
-            <h2 class="titre-footer">Ces sujets pouvaient vous intéresser</h2> 
+            <h2 class="titre-footer">Ces sujets peuvent vous intéresser</h2> 
             <div class="choix-infos">
                 <p>Ou trouver mon identifiant de connexion ?</p>
                 <img href=""/>

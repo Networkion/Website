@@ -7,6 +7,16 @@ use App\Models\User;
 
 class AccountController extends Controller
 {
+    // Méthode pour afficher la liste des comptes
+    public function index()
+    {
+        // Récupérer tous les utilisateurs depuis le modèle User
+        $comptes  = User::all();
+
+        // Retourner la vue avec les données des utilisateurs
+        return view('compte', ['comptes' => $comptes]);
+    }
+
     // Méthode pour afficher le formulaire de création de compte
     public function create()
     {

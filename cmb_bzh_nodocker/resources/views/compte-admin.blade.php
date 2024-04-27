@@ -24,9 +24,9 @@
         <div class="compte-infos">
             <h1 class="nom-du-compte">Nom du compte 
             </h1>
-            <p class="info-sous-compte">numéro de carte :  xxx xxxx xxxx xxx 01 </p>
-            <p class="info-sous-compte">date du solde : 10/03/2024</p>
-            <p class="info-sous-compte">facilité de caisse : 300€</p>
+            <p class="info-sous-compte">Numéro de carte :  xxx xxxx xxxx xxx 01 </p>
+            <p class="info-sous-compte">Date du solde : 10/03/2024</p>
+            <p class="info-sous-compte">Facilité de caisse : 300€</p>
         </div>
         <div class="montant-infos">
         <h1 class="montant">10 000€</h1>
@@ -39,7 +39,7 @@
                 <p>Objet de la notication</p>
             </div>
             <div class="contenu-notfi">
-                <p>cotenu de la notif</p>
+                <p>Contenu de la notification</p>
             </div>
         </div>
         <div class="compte-notif">
@@ -47,39 +47,38 @@
                 <p>Objet de la notication</p>
             </div>
             <div class="contenu-notfi">
-                <p>cotenu de la notif</p>
+                <p>Contenu de la notification</p>
             </div>
         </div><div class="compte-notif">
             <div class="objet-notfi">
                 <p>Objet de la notication</p>
             </div>
             <div class="contenu-notfi">
-                <p>cotenu de la notif</p>
+                <p>Contenu de la notification</p>
             </div>
         </div><div class="compte-notif">
             <div class="objet-notfi">
                 <p>Objet de la notication</p>
             </div>
             <div class="contenu-notfi">
-                <p>cotenu de la notif</p>
+                <p>Contenu de la notification</p>
             </div>
         </div><div class="compte-notif">
             <div class="objet-notfi">
                 <p>Objet de la notication</p>
             </div>
             <div class="contenu-notfi">
-                <p>cotenu de la notif</p>
+                <p>Contenu de la notification</p>
             </div>
         </div><div class="compte-notif">
             <div class="objet-notfi">
                 <p>Objet de la notication</p>
             </div>
             <div class="contenu-notfi">
-                <p>cotenu de la notif</p>
+                <p>Contenu de la notification</p>
             </div>
         </div>
     </div>
-    
 </div>
 </body>
 </html>
