@@ -13,18 +13,19 @@ Route::post('/connexion', [ConnexionController::class, 'authenticate'])->name('c
 Route::get('/creation-compte', [AccountController::class, 'create'])->name('creation-compte.create');
 Route::post('/creation-compte', [AccountController::class, 'store'])->name('creation-compte.store');
 
-// Route pour afficher la page d'accueil en utilisant VotreController
-Route::get('/', [AccountController::class, 'index'])->name('accueil');
+Route::get('/', function () {
+    return view('home');
+});
 
 // Route pour afficher la page de contact
 Route::get('contact', function () {
     return view('contact');
-});
+})->name('contact');
 
 // Route pour afficher la page de connexion
 Route::get('connexion', function () {
     return view('connexion-compte');
-});
+})->name('connexion');
 
 // Route pour afficher la page du compte
 Route::get('/compte', function () {
