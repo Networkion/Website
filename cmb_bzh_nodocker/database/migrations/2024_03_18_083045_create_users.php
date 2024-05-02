@@ -11,9 +11,9 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id('idUsers'); // Déclare une colonne auto-incrémentée idUsers comme clé primaire
+            $table->id(); // Remplace id('idUsers')
             $table->string('login')->nullable(false);
-            $table->string('name')->nullable(); // Rend la colonne name nullable
+            $table->string('name')->nullable();
             $table->string('firstName')->nullable(false);
             $table->string('email')->nullable(false);
             $table->string('role')->nullable(false);
@@ -21,13 +21,17 @@ return new class extends Migration {
             $table->string('password')->nullable();
             $table->dateTime('created_at')->nullable();
             $table->dateTime('updated_at')->nullable();
-            $table->integer('numCarte')->nullable();
-
-            // Ajoutez d'autres colonnes au besoin
-
-            // Ne déclarez pas de clé primaire ici car idUsers est déjà défini comme clé primaire avec la méthode id()
+            $table->string('numCarte')->nullable(); // Change integer en string
+    
+            // Ajouter les colonnes manquantes
+            $table->string('nom')->nullable();
+            $table->string('numero_carte')->nullable();
+            $table->dateTime('date_solde')->nullable();
+            $table->string('facilite_caisse')->nullable();
+            $table->string('montant')->nullable();
         });
     }
+    
 
 
     /**

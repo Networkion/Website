@@ -11,10 +11,10 @@ class AccountController extends Controller
     public function index()
     {
         // Récupérer tous les utilisateurs depuis le modèle User
-        $comptes  = User::all();
+        $comptes = User::all();
 
         // Retourner la vue avec les données des utilisateurs
-        return view('compte', ['comptes' => $comptes]);
+        return view('compte', compact('comptes'));
     }
 
     // Méthode pour afficher le formulaire de création de compte
@@ -26,23 +26,32 @@ class AccountController extends Controller
     // Méthode pour stocker un nouveau compte
     public function store(Request $request)
     {
-        // Validez les données du formulaire
-        $request->validate([
+        $validatedData = $request->validate([
             'email' => 'required|string|email|max:255|unique:users',
             'numCarte' => 'required|string|max:16|unique:users',
             'facilite_caisse' => 'required|numeric',
             'montant' => 'required|numeric',
         ]);
 
-        // Créez un nouvel utilisateur avec les données du formulaire
+        // Créer un nouvel utilisateur avec les données validées
         $user = new User();
+        $user->login = $request->login; // Modifier les attributs selon le nom des champs
+        $user->name = $request->name;
+        $user->firstName = $request->firstName;
         $user->email = $request->email;
+        $user->role = $request->role;
+        $user->birthdate = $request->birthdate;
+        $user->password = $request->password;
         $user->numCarte = $request->numCarte;
         $user->facilite_caisse = $request->facilite_caisse;
         $user->montant = $request->montant;
+        // Ajouter les autres attributs manquants
+
+        // Enregistrer l'utilisateur dans la base de données
         $user->save();
 
-        // Redirigez directement l'utilisateur vers la vue "compte.blade.php" après avoir enregistré le compte
-        return view('compte')->with('success', 'Account created successfully!');
+        // Rediriger l'utilisateur vers la vue "compte.blade.php" avec un message de succès
+        return redirect()->route('compte')->with('success', 'Compte créé avec succès !');
     }
 }
+

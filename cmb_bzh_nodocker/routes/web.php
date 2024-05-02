@@ -10,7 +10,7 @@ Route::get('/connexion', [ConnexionController::class, 'index'])->name('connexion
 Route::post('/connexion', [ConnexionController::class, 'authenticate'])->name('connexion.authenticate');
 
 // Route pour afficher le formulaire de création de compte
-Route::get('/creation-compte', [AccountController::class, 'create'])->name('creation-compte.create');
+Route::get('/creation-compte', [AccountController::class, 'create'])->name('creation-compte.form'); // Modifier le nom de route
 Route::post('/creation-compte', [AccountController::class, 'store'])->name('creation-compte.store');
 
 Route::get('/', function () {
@@ -27,10 +27,7 @@ Route::get('connexion', function () {
     return view('connexion-compte');
 })->name('connexion');
 
-// Route pour afficher la page du compte
-Route::get('/compte', function () {
-    return view('compte');
-})->name('compte');
+Route::get('/compte', [AccountController::class, 'index'])->name('compte');
 
 // Route pour afficher la page du compte admin
 Route::get('compte-admin', function () {

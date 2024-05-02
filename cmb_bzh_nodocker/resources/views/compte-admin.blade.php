@@ -12,7 +12,7 @@
 
 <body>
 <div class="nav-bar">
-        <img class="logo-entreprise"
+        <img class="logo-entreprise" 
             src="https://imgs.search.brave.com/tLpUue3mbK731PtxYec2n7IrpDn3pgkM_JefB7hTkbk/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9sb2dv/cy1tYXJxdWVzLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/MC8wMS9sb2dvLUNy/JUMzJUE5ZGl0LU11/dHVlbC02NTB4MzY2/LmpwZw" />
         <div class="button-nav-bar">
             <form action="{{ route('connexion') }}" method="GET">

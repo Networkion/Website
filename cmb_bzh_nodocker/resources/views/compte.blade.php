@@ -25,9 +25,9 @@
     @foreach($comptes as $compte)
         <div class="choix-infos">
             <div class="compte-infos">
-                <h1 class="nom-du-compte">{{ $compte->nom }}</h1>
-                <p class="info-sous-compte">Numéro de carte : {{ $compte->numero_carte }}</p>
-                <p class="info-sous-compte">Date du solde : {{ $compte->date_solde }}</p>
+            <h1 class="nom-du-compte">{{ $compte->name }}</h1> <!-- Changer $compte->nom en $compte->name -->
+            <p class="info-sous-compte">Numéro de carte : {{ $compte->numCarte }}</p> <!-- Changer $compte->numero_carte en $compte->numCarte -->
+             <p class="info-sous-compte">Date du solde : {{ $compte->date_solde }}</p>
                 <p class="info-sous-compte">Facilité de caisse : {{ $compte->facilite_caisse }}€</p>
             </div>
             <div class="montant-infos">

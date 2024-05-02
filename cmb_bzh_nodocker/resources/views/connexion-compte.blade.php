@@ -49,13 +49,13 @@
                 </div>
                 <div class="bouton-suivant-center">
                     <button class="button-suivant"  type="submit"><strong>Suivant</strong></button><br/>
-                    <u><i>Code d'accès oubliés / Accès bloqué </i></u>
+                    <u><i>Codes d'accès oubliés / Accès bloqué </i></u>
             </div>
                 
             </form>
             <h3><i>Première connexion ?</i></h3>
 
-            <form action="{{ route('creation-compte.create') }}" method="GET">
+            <form action="{{ route('creation-compte.form') }}" method="GET">
                 @csrf
                 <button class="button-suivant" type="submit">Création de compte</button>
             </form>

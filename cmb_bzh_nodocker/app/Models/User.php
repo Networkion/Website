@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -16,10 +15,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'name',
+        'login',
+        'firstName',
         'email',
         'numCarte',
         'facilite_caisse',
         'montant',
+        'birthdate',
         // Ajoutez d'autres attributs au besoin
     ];
 

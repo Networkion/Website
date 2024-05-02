@@ -29,9 +29,8 @@
             <!-- Formulaire de création de compte -->
             <form action="{{ route('creation-compte.store') }}" method="POST">
 
-                @csrf <!-- Génère un jeton CSRF pour la protection des formulaires -->
+                @csrf 
 
-                <!-- Champs de formulaire pour le login -->
                 <div>
                     <label for="login">Login:</label><br>
                     <input class="input-form" type="text" id="login" name="login" required>
@@ -39,7 +38,6 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <!-- Champs de formulaire pour le nom -->
                 <div>
                     <label for="name">Nom:</label><br>
                     <input class="input-form" type="text" id="name" name="name" required>
@@ -47,7 +45,6 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <!-- Champs de formulaire pour le prénom -->
                 <div>
                     <label for="firstName">Prénom:</label><br>
                     <input class="input-form" type="text" id="firstName" name="firstName" required>
@@ -55,7 +52,6 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <!-- Champs de formulaire pour l'email -->
                 <div>
                     <label for="email">Email:</label><br>
                     <input class="input-form" type="email" id="email" name="email" required>
@@ -63,15 +59,6 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <!-- Champs de formulaire pour le rôle -->
-                <div>
-                    <label for="role">Rôle:</label><br>
-                    <input class="input-form" type="text" id="role" name="role" required>
-                    @error('role')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <!-- Champs de formulaire pour la date de naissance -->
                 <div>
                     <label for="birthdate">Date de naissance:</label><br>
                     <input class="input-form" type="date" id="birthdate" name="birthdate">
@@ -79,7 +66,6 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <!-- Champs de formulaire pour le mot de passe -->
                 <div>
                     <label for="password">Mot de passe:</label><br>
                     <input class="input-form" type="password" id="password" name="password" required>
@@ -87,7 +73,6 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
-                <!-- Champs de formulaire pour le numéro de carte -->
                 <div>
                     <label for="numCarte">Numéro de carte:</label><br>
                     <input class="input-form" type="text" id="numCarte" name="numCarte" required>
@@ -96,19 +81,18 @@
                     @enderror
                 </div>
 
-                <!-- Checkbox pour se souvenir de l'utilisateur -->
                 <div>
                     <input type="checkbox" id="remember" name="remember">
                     <label for="remember">Se souvenir de moi</label>
                 </div>
 
-                <!-- Bouton de soumission du formulaire -->
                 <button type="submit">Connexion</button>
             </form>
 
-            <!-- Affichage du message de succès ou d'erreur -->
             @if (session('success'))
-                <div class="alert alert-success">
+                <div class="
+
+alert alert-success">
                     {{ session('success') }}
                 </div>
             @elseif (session('error'))
