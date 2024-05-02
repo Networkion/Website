@@ -9,7 +9,7 @@ use App\Http\Controllers\AccountController;
 Route::get('/connexion', [ConnexionController::class, 'index'])->name('connexion.index');
 
 // Route pour gérer la soumission du formulaire de connexion
-Route::post('/connexion', [ConnexionController::class, 'authenticate'])->name('connexion.authenticate');
+Route::post('/connexion', [AccountController::class, 'authenticate'])->name('connexion.authenticate');
 
 
 /*
