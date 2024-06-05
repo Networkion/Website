@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->dateTime('created_at')->nullable();
             $table->dateTime('updated_at')->nullable();
             $table->integer('numCarte')->nullable();
-
+            $table->integer('nbr_offre')->nullable();
             // Ajoutez d'autres colonnes au besoin
 
             // Ne déclarez pas de clé primaire ici car idUsers est déjà défini comme clé primaire avec la méthode id()

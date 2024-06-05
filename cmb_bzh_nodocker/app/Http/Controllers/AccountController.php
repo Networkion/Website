@@ -1,17 +1,27 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 class AccountController extends Controller
 {
+    public function index()
+    {
+        // Récupérer tous les utilisateurs avec leurs noms et le nombre d'offres par ordre croissant
+        $users = User::orderBy('nbr_offre')->get(['name', 'nbr_offre']);
+
+        // Retourner la vue avec les utilisateurs et leurs offres
+        return view('ListOffre', compact('users'));
+    }
     // Méthode pour afficher le formulaire de création de compte
     public function create()
     {
         return view('creation-compte');
     }
+
 
     // Méthode pour stocker un nouveau compte
     public function store(Request $request)
@@ -28,6 +38,9 @@ class AccountController extends Controller
             'numCarte' => 'required|string|max:16|unique:users',
         ]);
 
+        if ($request->role == !"USER" || $request->role == !"ADMIN") {
+            return response()->json(['exists' => true]);
+        }
         // Créer un nouvel utilisateur avec les données du formulaire
         $user = new User();
         $user->login = $request->login;
@@ -38,10 +51,18 @@ class AccountController extends Controller
         $user->birthdate = $request->birthdate;
         $user->password = bcrypt($request->password); // Assurez-vous de hasher le mot de passe
         $user->numCarte = $request->numCarte;
+        $user->nbr_offre = random_int(1, 100);
         $user->save();
 
-        // Rediriger directement l'utilisateur vers la vue "compte.blade.php" après avoir enregistré le compte
-        return view('compte')->with('success', 'Account created successfully!');
+        $compte = new account();
+        $compte->creditcard = $request->numCarte;
+        $compte->balance = random_int(1, 10000);
+        $compte->idUser = $user->id; // Assurez-vous de hasher le mot de passe
+        $compte->save();
+
+        echo ('test');
+        return redirect()->route('compte.show');
+
     }
 
     // Méthode pour vérifier l'existence d'un compte
@@ -80,7 +101,8 @@ class AccountController extends Controller
             $user = Auth::user();
             if ($user) {
                 // Rediriger l'utilisateur vers la vue compte.blade.php
-                return view('compte');
+                echo ('test');
+                return redirect()->route('compte.show');
             } else {
                 // L'utilisateur n'a pas de compte, déconnectez-le et redirigez-le vers la page de connexion avec un message d'erreur
                 Auth::logout();
@@ -91,5 +113,13 @@ class AccountController extends Controller
             return redirect()->back()->with('error', 'Adresse e-mail ou mot de passe incorrect.');
         }
     }
+    public function show()
+    {
+        $user = Auth::user();
+        echo($user);
+        $account = Account::where('idUser', $user->id)->first();
+        return view('compte', compact('user', 'account'));
+    }
+
 }
 

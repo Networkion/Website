@@ -33,7 +33,7 @@ Route::get('contact', function () {
 
 Route::get('connexion', function () {
     return view('connexion-compte');
-});
+})->name('connexion.index');
 
 // Route pour afficher le formulaire de création de compte
 
@@ -44,11 +44,12 @@ Route::post('/creation-compte', [AccountController::class, 'store'])->name('crea
 
 
 
-Route::get('/compte', function () {
-    return view('compte');
-})->name('compte');
+Route::get('/compte', [AccountController::class, 'show'])->name('compte.show');
 
 
 Route::get('compte-admin', function () {
     return view('compte-admin');
 });
+
+Route::get('/ListOffre', [AccountController::class, 'index'])->name('list.offre');
+

@@ -2,11 +2,24 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class account extends Model
+class Account extends Model
 {
-    protected $fillable = ['balance', 'livretJ', 'LivretA', 'ammountA', 'ammountJ'];
-    use HasFactory;
+    public $timestamps = false;
+
+    protected $fillable = [
+        'creditcard',
+        'balance',
+        'livretA',
+        'livretJ',
+        'ammountA',
+        'ammountJ',
+        'idUsers',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'idUsers');
+    }
 }
